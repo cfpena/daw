@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta http-equiv="cleartype" content="on">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+
+	<title>RelationApp</title>
+
+	<!--Include JQM and JQ-->
+	<link rel="stylesheet" href="css/themes/jqmfb.min.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/latest/jquery.mobile.structure.min.css" />
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+	<script src="js/jquery.animate-enhanced.min.js"></script>
+
+	<!--JQM globals you can edit or remove file entirely... note it needs to be loaded before jquerymobile js -->
+	<script src="js/jqm.globals.js"></script>
+
+	<script src="http://code.jquery.com/mobile/latest/jquery.mobile.min.js"></script>
+
+	<!--JQM SlideMenu-->
+	<link rel="stylesheet" href="css/jqm.slidemenu.css" />
+	<script src="js/jqm.slidemenu.js"></script>
+</head>
+<body>
+
+	<div id="slidemenu">
+
+		<div id="profile">
+			<img id="imgProfile" src="img/user.png">
+			<div class="profile_info"><strong>User</strong><br><small>correo@mail.com	</small></div>
+		</div>
+
+		<h3>MENU</h3>
+
+		<ul>
+			<li><a href="#main_page"><img src="img/smico3.png">Principal</a></li>
+			<li><a href="#another_page"><img src="img/smico2.png">Crear Diagrama</a></li>
+			<li><a href="#another_page2"><img src="img/smico5.png">Invitar Amigo</a></li>
+			<li><a href="#another_page3"><img src="img/smico6.png">Configuraciones</a></li>
+			<li><a href="#another_page4"><img src="img/smico4.png">Ayuda</a></li>
+		</ul>
+
+	</div>
+
+	<div data-role="page" id="main_page" data-theme="a">
+
+		<div data-role="header" data-position="fixed" data-tap-toggle="false" data-update-page-padding="false">
+			<a href="#" data-slidemenu="#slidemenu" data-slideopen="false" data-icon="smico" data-corners="false" data-iconpos="notext">Menu</a>
+			<h1>Diagramas Entidad-Relación</h1>
+		</div>
+
+		<div class="container" id="DiagramsContainers">
+			<br>
+			<div class="row">
+				<div class="panel panel-default col-sm-3 box">
+					<div class="panel-heading">
+						<h3 class="panel-title text-center">Diagrama 1</h3>
+					</div>
+					<div class="panel-body">
+						<img src="img/diagrama1.PNG" class="imgPanel" align="middle"></img>
+					</div>
+				</div>
+
+				<div class="panel panel-default col-sm-3 box">
+					<div class="panel-heading">
+						<h3 class="panel-title text-center">Diagrama 1</h3>
+					</div>
+					<div class="panel-body">
+						<img src="img/Diagrama2.png" class="imgPanel" align="middle"></img>
+					</div>
+				</div>
+
+				<div class="panel panel-default col-sm-3 box">
+					<div class="panel-heading">
+						<h3 class="panel-title text-center">Diagrama 1</h3>
+					</div>
+					<div class="panel-body">
+						<img src="img/Diagrama3.png" class="imgPanel" align="middle"></img>
+					</div>
+				</div>
+
+				<div class="panel panel-default col-sm-3 box">
+					<div class="panel-heading ">
+						<h3 class="panel-title text-center">Diagrama 1</h3>
+					</div>
+					<div class="panel-body">
+						<img src="img/Diagrama3.png" class="imgPanel" ></img>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div data-role="page" id="another_page" data-theme="a">
+
+		<div data-role="header" data-position="fixed" data-tap-toggle="false" data-update-page-padding="false">
+			<a href="#" data-slidemenu="#slidemenu" data-slideopen="false" data-icon="smico" data-corners="false" data-iconpos="notext">Menu</a>
+			<h1>Crear Diagrama</h1>
+		</div>
+
+
+
+	</div>
+
+	<div data-role="page" id="another_page2" data-theme="a">
+
+		<div data-role="header" data-position="fixed" data-tap-toggle="false" data-update-page-padding="false">
+			<a href="#" data-slidemenu="#slidemenu" data-slideopen="false" data-icon="smico" data-corners="false" data-iconpos="notext">Menu</a>
+			<h1>Invitar Amigos</h1>
+		</div>
+
+
+
+	</div>
+
+	<div data-role="page" id="another_page3" data-theme="a">
+
+		<div data-role="header" data-position="fixed" data-tap-toggle="false" data-update-page-padding="false">
+			<a href="#" data-slidemenu="#slidemenu" data-slideopen="false" data-icon="smico" data-corners="false" data-iconpos="notext">Menu</a>
+			<h1>Configuraciones</h1>
+		</div>
+
+	</div>
+
+	<div data-role="page" id="another_page4" data-theme="a">
+
+		<div data-role="header" data-position="fixed" data-tap-toggle="false" data-update-page-padding="false">
+			<a href="#" data-slidemenu="#slidemenu" data-slideopen="false" data-icon="smico" data-corners="false" data-iconpos="notext">Menu</a>
+			<h1>Ayuda</h1>
+		</div>
+
+	</div>
+
+
+</body>
+</html>
