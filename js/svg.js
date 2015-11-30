@@ -33,7 +33,7 @@ function uploadSvg(){
                 cache: false,
                 contentType: false,
                 processData: false,
-                data: form_data,
+                data: formData,
                 type: 'post',
                 success: function(php_script_response){
                     alert(php_script_response); // display response from the PHP script, if any
