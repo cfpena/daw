@@ -38,7 +38,7 @@ function uploadSvg(){
      xhr.open('POST', 'workspace.html', true);
      xhr.onload = function () {
       if (xhr.status === 200) alert("sucess!");
-      else alert('An error occurred!');
+      else alert(xhr.status);
     };
       xhr.send(formData);
    });
