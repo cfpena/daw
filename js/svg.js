@@ -52,7 +52,7 @@ function uploadSvg(){
                 type: 'post',
                 success: function(response){
 
-
+                    drawPath(responde);
 
                 }
      });
