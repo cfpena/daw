@@ -25,20 +25,20 @@ function uploadSvg(){
      var fileSelect = $("#file");
      var formData = new FormData();
      var file = fileSelect[0].files[0];
-     formData.append("svg",file);
-     var xhr = new XMLHttpRequest();
-     xhr.open('POST', '../handleupload.php', true);
-     xhr.onload = function () {
-      if (xhr.status !== 200)  alert(xhr.status);
-      else{
-        alert(xhr.responseText);
-
-      }
-    };
-      xhr.send(formData);
-
-   });
-
+     formData.append("file",file);
+     alert(form_data);
+    $.ajax({
+                url: 'handleupload.php', // point to server-side PHP script 
+                dataType: 'text',  // what to expect back from the PHP script, if anything
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: form_data,
+                type: 'post',
+                success: function(php_script_response){
+                    alert(php_script_response); // display response from the PHP script, if any
+                }
+     });
 
 
   $("#file").click();
