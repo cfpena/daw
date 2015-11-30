@@ -28,7 +28,7 @@ function uploadSvg(){
      formData.append("file",file);
      alert(form_data);
     $.ajax({
-                url: 'handleupload.php', // point to server-side PHP script 
+                url: 'handleupload.php', // point to server-side PHP script
                 dataType: 'text',  // what to expect back from the PHP script, if anything
                 cache: false,
                 contentType: false,
@@ -39,13 +39,9 @@ function uploadSvg(){
                     alert(php_script_response); // display response from the PHP script, if any
                 }
      });
-
-
-  $("#file").click();
-
-
+     $("#file").click();
+  }
 }
-
 
 
 
