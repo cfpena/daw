@@ -27,7 +27,7 @@ function uploadSvg(){
      var file = fileSelect[0].files[0];
      formData.append("svg",file);
      var xhr = new XMLHttpRequest();
-     xhr.open('POST', 'file:///home/cristian/Proyectos/daw/handleupload.php', true);
+     xhr.open('POST', '../handleupload.php', true);
      xhr.onload = function () {
       if (xhr.status !== 200)  alert(xhr.status);
       else{
