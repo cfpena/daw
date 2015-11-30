@@ -26,7 +26,7 @@ function uploadSvg(){
      var formData = new FormData();
      var file = fileSelect[0].files[0];
      formData.append("file",file);
-     alert(form_data);
+     alert(formData);
     $.ajax({
                 url: 'handleupload.php', // point to server-side PHP script
                 dataType: 'text',  // what to expect back from the PHP script, if anything
