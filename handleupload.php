@@ -4,13 +4,10 @@
         echo 'Error: ' . $_FILES['file']['error'] . '<br>';
     }
     else {
-        move_uploaded_file($_FILES['file']['tmp_name'], 'uploads/' . $_FILES['file']['name']);
-        $file = fopen("file", "r") or die("Unable to open file!");
-          // Output one line until end-of-file
-          while(!feof($file)) {
-            echo fgets($file) . "<br>";
-          }
-          fclose($file);
-          }
 
+        if ($_FILES['file']['error'] == UPLOAD_ERR_OK               //checks for errors
+              && is_uploaded_file($_FILES['file']['tmp_name'])) { //checks that file is uploaded
+          echo file_get_contents($_FILES['file']['tmp_name']);
+        }
+        move_uploaded_file($_FILES['file']['tmp_name'], 'uploads/' . $_FILES['file']['name']);
 ?>
