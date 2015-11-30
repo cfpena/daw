@@ -16,6 +16,21 @@ function drawEntidad() {
     c.drag(move,start,up);
 }
 
+function drawPath(path){
+
+  var c = paper.path(path).attr({
+          fill: "white",
+          stroke: "black",
+          opacity: 1,
+          cursor: "move",
+
+      });
+      c.drag(move,start,up);
+
+
+
+
+}
 
 function uploadSvg(){
   var input = ('<input type="file" id="file" style="display:none" />');
@@ -26,17 +41,19 @@ function uploadSvg(){
      var formData = new FormData();
      var file = fileSelect[0].files[0];
      formData.append("file",file);
-     alert(formData);
+
     $.ajax({
-                url: 'handleupload.php', // point to server-side PHP script
-                dataType: 'text',  // what to expect back from the PHP script, if anything
+                url: 'handleupload.php',
+                dataType: 'text',
                 cache: false,
                 contentType: false,
                 processData: false,
                 data: formData,
                 type: 'post',
-                success: function(php_script_response){
-                    alert(php_script_response); // display response from the PHP script, if any
+                success: function(response){
+
+
+
                 }
      });
 

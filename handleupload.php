@@ -5,6 +5,12 @@
     }
     else {
         move_uploaded_file($_FILES['file']['tmp_name'], 'uploads/' . $_FILES['file']['name']);
-    }
+        $file = fopen("file", "r") or die("Unable to open file!");
+          // Output one line until end-of-file
+          while(!feof($file)) {
+            echo fgets($file) . "<br>";
+          }
+          fclose($file);
+          }
 
 ?>
