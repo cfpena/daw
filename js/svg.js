@@ -6,7 +6,7 @@ $(function() {
 });
 function drawEntidad() {
 
-     c = paper.path("M 0 0 L 0 100 L 100 100 L 100 0 L 0 0 M 0 30 L 100 30 Z").attr({
+     var c = paper.path("M 0 0 L 0 100 L 100 100 L 100 0 L 0 0 M 0 30 L 100 30 Z").attr({
              fill: "white",
              stroke: "black",
              opacity: 1,
@@ -15,14 +15,6 @@ function drawEntidad() {
          });
     c.drag(move,start,up);
 }
-function prepareUpload(event)
-{
-  files = event.target.files;
-}
-
-
-
-
 
 
 function uploadSvg(){
@@ -35,12 +27,16 @@ function uploadSvg(){
      var file = fileSelect[0].files[0];
      formData.append("svg",file);
      var xhr = new XMLHttpRequest();
-     xhr.open('POST', 'workspace.html', true);
+     xhr.open('POST', 'file:///home/cristian/Proyectos/daw/handleupload.php', true);
      xhr.onload = function () {
-      if (xhr.status === 200) alert("sucess!");
-      else alert(xhr.status);
+      if (xhr.status !== 200)  alert(xhr.status);
+      else{
+        alert(xhr.responseText);
+
+      }
     };
       xhr.send(formData);
+
    });
 
 
