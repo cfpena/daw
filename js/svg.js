@@ -39,9 +39,16 @@ function uploadSvg(){
                     alert(php_script_response); // display response from the PHP script, if any
                 }
      });
-     $("#file").click();
-  }
+
+   });
+
+
+
+  $("#file").click();
+
+
 }
+
 
 
 
