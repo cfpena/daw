@@ -51,7 +51,7 @@ function uploadSvg(){
                 data: formData,
                 type: 'post',
                 success: function(response){
-
+		    alert(response);
                     drawPath(response);
 
                 }
