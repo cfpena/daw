@@ -60,34 +60,38 @@ function drawEntidad() {
     });
     set.draggable();
     d.undrag();
-    d.drag(moveLine,startLine,upLine);
+    drawLine(d,set);
 }
 
+function drawLine(d,set){
 
          startLine = function () {
-           this.ox = this.getBBox().x + this.getBBox().width;
-           this.oy = this.getBBox().y + this.getBBox().height/2;
-           console.log(this.getBBox());
-           line = paper.path("M"+" "+this.ox+" "+this.oy);
-           this.animate({"stroke-opacity": 0.2}, 500);
+           d.ox = d.getBBox().x + d.getBBox().width;
+           d.oy = d.getBBox().y + d.getBBox().height/2;
+           console.log(d.getBBox());
+           line = paper.path("M"+" "+d.ox+" "+d.oy);
+           d.animate({"stroke-opacity": 0.2}, 500);
+           set.push(line);
+
          },
          moveLine = function (dx, dy) {
-           this.attr({
-                      cx: this.ox + dx,
-                      cy: this.oy + dy
+           d.attr({
+                      cx: d.ox + dx,
+                      cy: d.oy + dy
                       });
          },
          move2Line = function () {
                    line.remove();
-                    line = paper.path("M"+" "+this.ox+" "+this.oy+"L"+this.attr("cx")+" "+this.attr("cy"));
+                    line = paper.path("M"+" "+d.ox+" "+d.oy+"L"+d.attr("cx")+" "+d.attr("cy"));
+                    set.push(line);
                             },
          upLine = function () {
-        this.drag(move2Line, start, up);
-         this.animate({"stroke-opacity": 1}, 500);
+        d.drag(move2Line, start, up);
+         d.animate({"stroke-opacity": 1}, 500);
          };
+         d.drag(moveLine,startLine,upLine);
 
-
-
+}
 function drawPath(path){
 
   var c = paper.path(path).attr({
