@@ -103,3 +103,11 @@ down vote
  background-color:#40B3DF;
  border-left: 1px solid black;
 }
+.tool{
+height: auto;
+width: auto;
+max-width: 20px;
+max-height: 20px;
+
+
+}
