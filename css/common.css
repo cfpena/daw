@@ -3,9 +3,23 @@
 	cursor: move;
 	font-weight: bold;
 	font-size: 120%;
+
 }
-	
+
+.x {
+	cursor: pointer;
+	float: right;
+
+}
+
 .connect {
+
+	height: auto;
+	cursor: pointer;
+	text-align: center;
+	font-size: 140%;
+}
+.content {
 	width: 100%;
 	height: 20px;
 	cursor: pointer;
@@ -20,7 +34,7 @@
 }
 
 .menu-item {
-	position: absolute;        
+	position: absolute;
 	border: 1px solid black;
 	width: 150px;
 	font-size: 80%;
@@ -32,7 +46,7 @@
 }
 
 .item {
-	position: absolute;        
+	position: relative;
 	border: 1px solid black;
 	width: 150px;
 	font-size: 80%;
@@ -44,10 +58,10 @@
 }
 
 /* the container is 200px (size of menu-container) plus 3 times 250px + 2px per border*/
-#container {
-	border: 2px solid gray;
-	width: 958px;
-	height: 500px;
+#drawContainer {
+height: 100%;
+width: 100%
+
 }
 
 /* the menu is 200px wide */
@@ -66,4 +80,26 @@
 	width: 1px;
 	height: 498px;
 }
+164
+down vote
 
+
+.div-table{
+ display:table;
+ width:auto;
+ background-color:#eee;
+ border:1px solid  #666666;
+ border-spacing:1px;/*cellspacing:poor IE support for  this*/
+}
+.div-table-row{
+ display:table-row;
+ width:auto;
+ clear:both;
+}
+.div-table-col{
+ float:left;/*fix for  buggy browsers*/
+ display:table-column;
+ width:37px;
+ background-color:#40B3DF;
+ border-left: 1px solid black;
+}

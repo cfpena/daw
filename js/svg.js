@@ -1,160 +1,162 @@
 $(function() {
 
-        paper = new Raphael(document.getElementById('drawContainer'), 1000 , 1000);
-        $("#entidadButton").click(drawEntidad);
-        $("#cargarButton").click(uploadSvg);
+
+  $("#cargarButton").click(uploadSvg);
+
+
+
+
+  jsPlumb.ready(drawEntidad);
 });
 
-Raphael.st.draggable = function() {
-  var me = this,
-      lx = 0,
-      ly = 0,
-      ox = 0,
-      oy = 0,
-      moveFnc = function(dx, dy) {
-          lx = dx + ox;
-          ly = dy + oy;
-          me.transform('t' + lx + ',' + ly);
-      },
-      startFnc = function() {
-
-
-        me.animate({"stroke-opacity": 0.2,"opacity":0.2}, 500);
-
-
-
-      },
-      endFnc = function() {
-          ox = lx;
-          oy = ly;
-          me.animate({"stroke-opacity": 1,"opacity":1}, 500);
-      };
-
-  this.drag(moveFnc, startFnc, endFnc);
-};
-function drawEntidad() {
-  var d = paper.path("M 0 0 L 0 120 L 120 120 L 120 0 L 0 0 Z").attr({
-          opacity: 0,
-          cursor: "default",
-          fill: "white"
-      });
-
-     var c = paper.path("M 10 10 L 10 110 L 110 110 L 110 10 L 10 10 M 10 40 L 110 40 Z").attr({
-             fill: "white",
-             stroke: "black",
-             opacity: 1,
-             cursor: "move",
-
-         });
-
-    var t = paper.text(30,20,"Entidad");
-    var a = paper.text(30,50,"Elemento");
-    var b = paper.text(30,70,"Elemento");
-    var set= paper.set();
-    set.push(c,d,t,a,b);
-    set.mouseover(function() {
-      d.animate({"stroke": "black","stroke-opacity": 1,"cursor": "move"}, 500);
-    });
-    set.mouseout(function() {
-      d.animate({"stroke": "black","stroke-opacity": 0,"cursor": "default"}, 500);
-    });
-    set.draggable();
-    d.undrag();
-    drawLine(d,set);
-}
-
-function drawLine(d,set){
-
-         startLine = function () {
-           d.ox = d.getBBox().x + d.getBBox().width;
-           d.oy = d.getBBox().y + d.getBBox().height/2;
-           console.log(d.getBBox());
-           line = paper.path("M"+" "+d.ox+" "+d.oy);
-           d.animate({"stroke-opacity": 0.2}, 500);
-           set.push(line);
-
-         },
-         moveLine = function (dx, dy) {
-           d.attr({
-                      cx: d.ox + dx,
-                      cy: d.oy + dy
-                      });
-         },
-         move2Line = function () {
-                   line.remove();
-                    line = paper.path("M"+" "+d.ox+" "+d.oy+"L"+d.attr("cx")+" "+d.attr("cy"));
-                    set.push(line);
-                            },
-         upLine = function () {
-        d.drag(move2Line, start, up);
-         d.animate({"stroke-opacity": 1}, 500);
-         };
-         d.drag(moveLine,startLine,upLine);
-
-}
-function drawPath(path){
-
-  var c = paper.path(path).attr({
-          fill: "white",
-          stroke: "black",
-          opacity: 1,
-          cursor: "move",
-
-      });
-      c.drag(move,start,up);
-
-z
-
-
-}
-
+// Subir archivo al servidor
 function uploadSvg(){
   var input = ('<input type="file" id="file" style="display:none" />');
   $("#drawContainer").append(input);
   $("#file").change(function ()
-   {
-     var fileSelect = $("#file");
-     var formData = new FormData();
-     var file = fileSelect[0].files[0];
-     formData.append("file",file);
+  {
+    var fileSelect = $("#file");
+    var formData = new FormData();
+    var file = fileSelect[0].files[0];
+    formData.append("file",file);
 
     $.ajax({
-                url: 'handleupload.php',
-                dataType: 'text',
-                cache: false,
-                contentType: false,
-                processData: false,
-                data: formData,
-                type: 'post',
-                success: function(response){
-		    alert(response);
-                    drawPath(response);
+      url: 'handleupload.php',
+      dataType: 'text',
+      cache: false,
+      contentType: false,
+      processData: false,
+      data: formData,
+      type: 'post',
+      success: function(response){
+        alert(response);
+        drawPath(response);
 
-                }
-     });
+      }
+    });
 
-   });
-
-
-
+  });
   $("#file").click();
-
-
 }
 
+// Diagramas
+function drawEntidad() {
+
+  var i = 0;
+
+  $('#entidadButton').click(function(e) {
 
 
 
-var start = function () {
-this.odx = 0;
-this.ody = 0;
-this.animate({"stroke-opacity": 0.2}, 500);
-},
-move = function (dx, dy) {
-this.translate(dx - this.odx, dy - this.ody);
-this.odx = dx;
-this.ody = dy;
-},
-up = function () {
-this.animate({"stroke-opacity": 1}, 500);
-};
+    var titletext = prompt("Ingrese el titulo");
+
+    var newState = $('<div>').attr('id', 'state' + i).addClass('item');
+
+    var title = $('<div>').addClass('title').text(titletext);
+
+    var items = $('<div>').addClass('items');
+
+    var addRow = function () {
+
+    var content  = $('<div>').attr('id','c' + i).addClass('div-table').text('');
+    var nombre= $('<div>').addClass('div-table-col').text('id');
+    var tipo= $('<div>').addClass('div-table-col').text('int');
+    var pk= $('<div>').addClass('div-table-col').text('pk');
+    var x2= $('<div>').attr('id',i).addClass('div-table-col').text('X');
+
+    content.append(nombre);
+    content.append(tipo);
+    content.append(pk);
+    content.append(x2);
+
+    x2.click(function(e){
+      var item = $(this).attr('id');
+      $('#c' + item).remove();
+      e.stopPropagation();
+    });
+
+    nombre.click(function(e){
+      var text = prompt("Ingrese nombre");
+      nombre.text(text);
+      e.stopPropagation();
+    });
+    tipo.click(function(e){
+      var text = prompt("Ingrese tipo");
+      tipo.text(text);
+      e.stopPropagation();
+    });
+    pk.click(function(e){
+      var text = prompt("Ingrese Key");
+      pk.text(text);
+      e.stopPropagation();
+    });
+
+
+
+    items.append(content);
+  };
+
+    var x= $('<div>').addClass('x').text('X');
+
+
+    var connect = $('<div>').addClass('connect').text('*');
+
+    var mas  = $('<div>').attr('id',i).addClass('mas').text('+');
+
+    newState.css({
+      'top': 10,
+      'left': 10
+    });
+
+    jsPlumb.makeTarget(newState, {
+      anchor: 'Continuous'
+    });
+
+    jsPlumb.draggable(newState, {
+      containment: 'Continuous'
+    });
+
+    jsPlumb.makeSource(connect, {
+      parent: newState,
+      anchor: 'Continuous'
+    });
+
+
+
+
+
+    title.append(x);
+
+
+    x.click(function(e){
+      jsPlumb.detachAllConnections(newState);
+      newState.remove();
+      e.stopPropagation();
+    });
+
+    title.click(function(e){
+      var text = prompt("Ingrese titulo");
+      title.text(text);
+      e.stopPropagation();
+    });
+    mas.click(function(e){
+      addRow();
+      e.stopPropagation();
+    });
+
+
+
+    newState.append(connect);
+    newState.append(title);
+    newState.append(items);
+    addRow();
+    newState.append(mas);
+
+
+
+    $('#drawContainer').append(newState);
+
+    i++;
+  });
+
+}
