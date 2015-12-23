@@ -1,0 +1,16 @@
+<diagrama>
+  <entidad>
+    <id>1</id>
+    <nombre>nombre</nombre>
+    <atributos>
+      <campo>
+        <titulo>id<titulo>
+        <tipo>int<tipo>
+      </campo>
+      <campo>
+        <titulo>nombre</titulo>
+        <tipo>String</tipo>
+      </campo>
+    </atributos>
+  </entidad>
+</diagrama>
