@@ -1,5 +1,5 @@
 <?php
-$myfile = fopen("p.txt", "w") or die("Unable to open file!");
+$myfile = fopen("saves/1.txt", "w") or die("Unable to open file!");
 $txt = $_POST["data"];
 fwrite($myfile, $txt);
 fclose($myfile);

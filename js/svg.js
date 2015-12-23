@@ -3,7 +3,10 @@
 $(function() {
 
 
-  $("#cargarButton").click(uploadSvg);
+  $("#cargarButton").click(function(){
+
+    $("#drawContainer").load("saves/1.txt");
+  });
   jsPlumb.ready(drawEntidad);
     $("#guardar").click(function(){
       var data = $("#drawContainer").html();
