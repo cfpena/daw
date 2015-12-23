@@ -17,15 +17,14 @@
        <script type="text/javascript" src="js/jquery.jsPlumb-1.4.1-all-min.js"></script>
       <script type="text/javascript" src="js/jspanel/jquery.jspanel.min.js"></script>
       <script type="text/javascript" src="js/jquery.svg.min.js"></script>
-      <script type="text/javascript" src="js/raphael-min.js"></script>
       <script type="text/javascript" src="js/svg.js"></script>
+      <link rel="stylesheet" type="text/css" href="css/common.css">
+      <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/flick/jquery-ui.css" />
 
-      <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/flick/jquery-ui.css" />
-
-              <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
-              <!-- loading jsPanel css -->
-              <link href="js/jspanel/jquery.jspanel.css" rel="stylesheet"/>
-              <link href="css/jquery.svg.css" rel="stylesheet"/>
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
+      <!-- loading jsPanel css -->
+      <link href="js/jspanel/jquery.jspanel.css" rel="stylesheet"/>
+      <link href="css/jquery.svg.css" rel="stylesheet"/>
      </head>
      <body>
 
@@ -66,6 +65,7 @@
                  <ul class="dropdown-menu">
                    <li><a href="#">Nuevo</a></li>
                    <li><a id="cargarButton" href="#">Cargar</a></li>
+                   <li><a id="guardar" href="#">Guardar</a></li>
                    <li><a href="#">Descargar</a></li>
                    <li><a href="#">Salir</a></li>
                  </ul>
@@ -78,6 +78,23 @@
 
        </nav>
        </footer>
+       <!-- Panel -->
+       <div class="wrapper">
+            <script>
+            $.jsPanel({
+              title:    "Tools",
+              size:     { width:  200, height: 300 },
 
+              position: "top right",
+              theme:    'info',
+              content:    "<a id='entidadButton' class='btn primary,tool'> <img src='img/entidad.png' class='pull-left'/></a>"
+            + "<button type='button' class='btn btn-primary'>A</button>"
+            + "<button type='button' class='btn btn-primary'>A</button>"
+            + "<button type='button' class='btn btn-primary'>A</button>"
+            + "<button type='button' class='btn btn-primary'>A</button>"
+
+          });
+            </script>
+        </div>
      </body>
   </html>
